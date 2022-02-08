@@ -9,4 +9,5 @@ async function action() {
   const octokit = new github.getOctokit(privlidgedToken)
 
   const blockedUsers = await octokit.rest.orgs.listBlockedUsers({ importOrg })
+  core.debug(`Blocked users: ${blockedUsers.data.map(u => u.login).join(', ')}`)
 }

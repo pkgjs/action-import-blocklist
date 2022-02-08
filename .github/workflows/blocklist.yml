@@ -1,0 +1,13 @@
+name: Authors update
+on:
+    workflow_dispatch:
+
+jobs:
+  pull_blocklist:
+    if: github.repository == 'bnb/action-pull-blocklist'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: bnb/action-pull-blocklist@HEAD
+        with:
+          organization: nodejs
+          token: ${{ secrets.GITHUB_TOKEN }}
