@@ -4,10 +4,10 @@ on:
 
 jobs:
   import_blocklist:
-    if: github.repository == 'bnb/action-import-blocklist'
+    if: github.repository == 'cutenode/action-import-blocklist'
     runs-on: ubuntu-latest
     steps:
-      - uses: bnb/action-import-blocklist@HEAD
+      - uses: cutenode/action-import-blocklist@HEAD
         with:
           sourceOrganization: my-source-org
           targetOrganization: my-target-org
