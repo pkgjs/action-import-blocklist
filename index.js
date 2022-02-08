@@ -11,15 +11,15 @@ async function action() {
   const blockedUsers = apiResponse.map(user => user.login)
   blockedUsers.forEach(async function (user) {
     const userIsAlreadyBlocked = await octokit.rest.orgs.checkBlockedUser({ org: target, username: user })
-    if(userIsAlreadyBlocked.status !== 204) {
-    console.log(`Attempting to block user: ${user}`)
-    const block = await octokit.rest.orgs.blockUser({
-      org: target,
-      username: user,
-    })
-    console.log(`Block response: ${JSON.stringify(block, null, 2)}`)
-    } else {
+    if(userIsAlreadyBlocked.status === 204) {
       console.log(`Skipping ${user}, as they are already blocked.`)
+    } else {
+      console.log(`Attempting to block user: ${user}`)
+      const block = await octokit.rest.orgs.blockUser({
+        org: target,
+        username: user,
+      })
+      console.log(`Block response: ${JSON.stringify(block, null, 2)}`)
     }
   })
 }
