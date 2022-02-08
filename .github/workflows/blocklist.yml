@@ -1,4 +1,4 @@
-name: Authors update
+name: Import Blocklist
 on:
     workflow_dispatch:
 
