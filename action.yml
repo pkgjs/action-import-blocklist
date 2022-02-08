@@ -1,0 +1,15 @@
+name: Pull Blocklist
+description: "A GitHub Action to block all users blocked by another organization"
+branding:
+  icon: "git-pull-request"
+  color: red
+inputs:
+  organization:
+    description: "THe organization you want to use as your source blocklist. All blocked users in the organization you input will be blocked in the organization you run this action in."
+    required: true
+  token:
+    description: "GitHub Access Token required to get organization data."
+    required: true
+runs:
+  using: "node12"
+  main: "index.js"
