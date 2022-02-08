@@ -1,5 +1,5 @@
-name: Pull Blocklist
-description: "A GitHub Action to block all users blocked by another organization"
+name: Import Blocklist
+description: "A GitHub Action to import the blocklist of an organization"
 branding:
   icon: "git-pull-request"
   color: red

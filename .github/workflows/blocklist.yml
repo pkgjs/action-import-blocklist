@@ -4,10 +4,10 @@ on:
 
 jobs:
   pull_blocklist:
-    if: github.repository == 'bnb/action-pull-blocklist'
+    if: github.repository == 'bnb/action-import-blocklist'
     runs-on: ubuntu-latest
     steps:
-      - uses: bnb/action-pull-blocklist@HEAD
+      - uses: bnb/action-import-blocklist@HEAD
         with:
           organization: nodejs
           token: ${{ secrets.TOKEN }}
