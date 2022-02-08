@@ -8,8 +8,6 @@ async function action() {
 
   const octokit = new github.getOctokit(privlidgedToken)
 
-  console.log('Importing organization:', importOrg)
-
   const blockedUsers = await octokit.rest.orgs.listBlockedUsers({ importOrg })
   console.log(`Blocked users: ${blockedUsers}`)
 }
