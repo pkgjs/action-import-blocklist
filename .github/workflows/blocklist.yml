@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
 
 jobs:
-  pull_blocklist:
+  import_blocklist:
     if: github.repository == 'bnb/action-import-blocklist'
     runs-on: ubuntu-latest
     steps:
