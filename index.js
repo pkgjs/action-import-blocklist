@@ -6,7 +6,8 @@ async function action() {
   const privilegedToken = core.getInput('token', { required: true })
   const octokit = new github.getOctokit(privilegedToken)
 
-  const blockedUsers = await octokit.rest.orgs.listBlockedUsers({ org })
+  const apiResponse = await octokit.rest.orgs.listBlockedUsers({ org })
+  const blockedUsers = apiResponse.data.map(user => user.login)
   console.log(`Blocked users: ${JSON.stringify(blockedUsers, null, 2)}`)
 }
 
