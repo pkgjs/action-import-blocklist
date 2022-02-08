@@ -7,7 +7,7 @@ async function action() {
   const octokit = new github.getOctokit(privilegedToken)
 
   const blockedUsers = await octokit.rest.orgs.listBlockedUsers({ org })
-  console.log(`Blocked users: ${blockedUsers}`)
+  console.log(`Blocked users: ${JSON.stringify(blockedUsers, null, 2)}`)
 }
 
 action()
