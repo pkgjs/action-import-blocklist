@@ -4,9 +4,11 @@ branding:
   icon: "git-pull-request"
   color: red
 inputs:
-  organization:
-    description: "THe organization you want to use as your source blocklist. All blocked users in the organization you input will be blocked in the organization you run this action in."
+  sourceOrganization:
+    description: "The organization you want to use as your source to import a blocklist from."
     required: true
+  targetOrganization:
+    description: "The organization you want to import the blocklist into."
   token:
     description: "GitHub Access Token required to get organization data."
     required: true

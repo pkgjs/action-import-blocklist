@@ -10,5 +10,6 @@ jobs:
     steps:
       - uses: bnb/action-import-blocklist@HEAD
         with:
-          organization: nodejs
+          sourceOrganization: nodejs
+          targetOrganization: blocking-people-sorry-not-sorry
           token: ${{ secrets.TOKEN }}

@@ -2,13 +2,21 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 
 async function action() {
-  const org = core.getInput('organization', { required: true })
+  const source = core.getInput('sourceOrganization', { required: true })
+  const target = core.getInput('targetOrganization', { required: true })
   const privilegedToken = core.getInput('token', { required: true })
   const octokit = new github.getOctokit(privilegedToken)
 
-  const apiResponse = await octokit.paginate(octokit.rest.orgs.listBlockedUsers, { org })
+  const apiResponse = await octokit.paginate(octokit.rest.orgs.listBlockedUsers, { org: source })
   const blockedUsers = apiResponse.map(user => user.login)
-  console.log(`Blocked users: ${JSON.stringify(blockedUsers, null, 2)}`)
+  blockedUsers.forEach(user => {
+    console.log(`Attempting to block user: ${user}`)
+    const block = await octokit.rest.orgs.blockUser({
+      org: target,
+      username: user,
+    })
+    console.log(`Block response: ${block}`)
+  })
 }
 
 action()
