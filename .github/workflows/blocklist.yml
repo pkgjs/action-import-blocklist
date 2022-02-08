@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: bnb/action-import-blocklist@HEAD
         with:
-          sourceOrganization: blocking-people-sorry-not-sorry
-          targetOrganization: cutenode
+          sourceOrganization: my-source-org
+          targetOrganization: my-target-org
           token: ${{ secrets.TOKEN }}
