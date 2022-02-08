@@ -1,6 +1,5 @@
 name: Import Blocklist
 on:
-    push:
     workflow_dispatch:
 
 jobs:
@@ -10,6 +9,6 @@ jobs:
     steps:
       - uses: bnb/action-import-blocklist@HEAD
         with:
-          sourceOrganization: nodejs
-          targetOrganization: blocking-people-sorry-not-sorry
+          sourceOrganization: blocking-people-sorry-not-sorry
+          targetOrganization: cutenode
           token: ${{ secrets.TOKEN }}
