@@ -9,7 +9,7 @@ async function action() {
 
   const apiResponse = await octokit.paginate(octokit.rest.orgs.listBlockedUsers, { org: source })
   const blockedUsers = apiResponse.map(user => user.login)
-  blockedUsers.forEach(user => {
+  blockedUsers.forEach(async function (user) {
     console.log(`Attempting to block user: ${user}`)
     const block = await octokit.rest.orgs.blockUser({
       org: target,
