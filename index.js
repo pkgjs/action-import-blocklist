@@ -7,7 +7,8 @@ async function action() {
   const octokit = new github.getOctokit(privilegedToken)
 
   const apiResponse = await octokit.paginate(octokit.rest.orgs.listBlockedUsers, { org })
-  console.log(`Blocked users: ${JSON.stringify(apiResponse, null, 2)}`)
+  const blockedUsers = apiResponse.data.map(user => user.login)
+  console.log(`Blocked users: ${JSON.stringify(blockedUsers, null, 2)}`)
 }
 
 action()
