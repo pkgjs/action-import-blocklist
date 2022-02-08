@@ -10,4 +10,4 @@ jobs:
       - uses: bnb/action-pull-blocklist@HEAD
         with:
           organization: nodejs
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
