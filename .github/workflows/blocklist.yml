@@ -1,5 +1,6 @@
 name: Import Blocklist
 on:
+    push:
     workflow_dispatch:
 
 jobs:
