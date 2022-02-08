@@ -15,7 +15,7 @@ async function action() {
       org: target,
       username: user,
     })
-    console.log(`Block response: ${block}`)
+    console.log(`Block response: ${JSON.stringify(block, null, 2)}`)
   })
 }
 
