@@ -4,10 +4,10 @@ on:
 
 jobs:
   import_blocklist:
-    if: github.repository == 'cutenode/action-import-blocklist'
+    if: github.repository == 'pkgjs/action-import-blocklist'
     runs-on: ubuntu-latest
     steps:
-      - uses: cutenode/action-import-blocklist@HEAD
+      - uses: pkgjs/action-import-blocklist@HEAD
         with:
           sourceOrganization: my-source-org
           targetOrganization: my-target-org
